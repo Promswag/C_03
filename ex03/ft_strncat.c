@@ -6,21 +6,25 @@
 /*   By: gbaumgar <gbaumgar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:57:16 by gbaumgar          #+#    #+#             */
-/*   Updated: 2022/01/18 17:00:46 by gbaumgar         ###   ########.fr       */
+/*   Updated: 2022/01/19 18:16:57 by gbaumgar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
-	int	j;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
 	j = 0;
 	while (dest[i] != '\0')
 		i++;
-	while (src[j] != '\0' && j < (int)nb)
+	while (src[j] != '\0' && j < nb)
+	{
 		dest[i++] = src[j++];
+		i++;
+		j++;
+	}
 	dest[i] = '\0';
 	return (dest);
 }
