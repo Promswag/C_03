@@ -6,9 +6,11 @@
 /*   By: gbaumgar <gbaumgar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:59:43 by gbaumgar          #+#    #+#             */
-/*   Updated: 2022/01/19 18:17:28 by gbaumgar         ###   ########.fr       */
+/*   Updated: 2022/01/20 20:54:27 by gbaumgar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -22,23 +24,26 @@ int	ft_strlen(char *str)
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	length;
-	unsigned int	max;
+	int	i;
+	int	j;
+	int	k;
+	int	length;
+	int	max;
 
+	k = 0;
 	j = 0;
 	length = ft_strlen(src);
 	max = ft_strlen(dest);
-	i = 0 + max;
-	while (dest[i] != '\0')
-		i++;
-	while (src[j] != '\0' && i < size + max - 1)
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
+	if ((int)size == 0)
+		max = 0;
+	if (src[0] == '\0')
+		length = 0;
+	i = 0 + ft_strlen(dest);
+	while (i < (int)size && dest[i] != '\0')
+		k = ++i;
+	while (src[j] != '\0' && i < (int)size - k - 1)
+		dest[i++] = src[j++];
 	dest[i] = '\0';
-	return (i);
+	printf("%d,%d\n", length, max);
+	return (length + max);
 }
