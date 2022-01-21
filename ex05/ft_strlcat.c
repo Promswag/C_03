@@ -6,11 +6,9 @@
 /*   By: gbaumgar <gbaumgar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:59:43 by gbaumgar          #+#    #+#             */
-/*   Updated: 2022/01/20 20:54:27 by gbaumgar         ###   ########.fr       */
+/*   Updated: 2022/01/21 10:00:30 by gbaumgar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -44,6 +42,5 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	while (src[j] != '\0' && i < (int)size - k - 1)
 		dest[i++] = src[j++];
 	dest[i] = '\0';
-	printf("%d,%d\n", length, max);
 	return (length + max);
 }
